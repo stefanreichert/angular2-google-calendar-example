@@ -6,4 +6,4 @@ A simple example using
 * Google OAuth2 
 * Google Calendar
 
-Please see https://angular.io/ for details on setting up the TypeScript compiler.
+Please see https://angular.io/ for details on setting up the TypeScript compiler and the simple HTTP server.
