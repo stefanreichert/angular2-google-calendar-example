@@ -1,0 +1,5 @@
+dist
+**/*.js
+**/*.js.map
+*.js.map
+*.js

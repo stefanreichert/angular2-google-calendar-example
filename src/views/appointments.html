@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-body" *ng-if="authenticationService.isAuthenticated">
+	<h4>Appointments available for {{authenticationService.authenticatedUserName}}:</h4>
+	<ul class="list-group">
+		<li class="list-group-item" *ng-for="#appointment of appointments">
+			{{appointment}}
+		</li>
+	</ul>
+	<button class="btn btn-default navbar-btn" (click)="refreshAppointments()">Refresh</button>
+</div>
+<div class="panel-body" *ng-if="!authenticationService.isAuthenticated">
+	<h4>Welcome to CatCalZone</h4>
+</div>
+</div>
+
