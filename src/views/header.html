@@ -1,22 +1,24 @@
  <nav class="navbar navbar-default navbar-static-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">CatCal.Zone</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li *ng-if="!service.isAuthenticated"><button class="btn btn-default navbar-btn" (click)="service.login()">Login with Google</button></li>
-            <li *ng-if="service.isAuthenticated">
-              <p class="navbar-text">Signed in as {{service.authenticatedUserName}}<small><a href="#" (click)="service.logout()">  (Logout)</a></small></p>
-            </li>
-            <li *ng-if="service.isAuthenticated"><img class="img-responsive" [src]="service.authenticatedUserImageUrl"></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Angular2 - Google OAuth/Calendar Example</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <!-- *ng-if is a directive transpiling to valid html-->
+        <li *ng-if="!authenticationService.isAuthenticated">
+          <!-- (click) binds the components authenticationService.login() method to the onClick-event -->
+          <button class="btn btn-default navbar-btn" (click)="authenticationService.login()">Login with Google</button>
+        </li>
+        <li *ng-if="authenticationService.isAuthenticated">
+        <!-- curly brackets are used to bind a part of a text to a component's field value -->
+        <p class="navbar-text">Signed in as {{authenticationService.userName}}<small>  <a href="#" (click)="authenticationService.logout()">(Logout)</a></small></p>
+        </li>
+        <li *ng-if="authenticationService.isAuthenticated">
+          <!-- brackets are used to bind an attribute value to a component's field value -->
+        <img class="img-responsive" [src]="authenticationService.userImageUrl">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

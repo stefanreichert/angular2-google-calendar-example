@@ -5,14 +5,32 @@ import {Appointments} from '../src/views/appointments';
 import {AppointmentsService} from '../src/services/appointmentsservice'
 import {AuthenticationService} from '../src/services/authenticationservice'
 
+/*
+ * the Application class represents the main component. it is referenced by the 
+ * index.html file and is also reponsible for bootstrapping the application.
+ */
 @Component({
-  selector: 'cat-cal-zone'
+  selector: 'ajs2-oauth-sample'
 })
 @View({
   templateUrl: 'src/shell.html',
-  directives: [Header, Appointments]
+  directives: [Header, Appointments] // these directives are used in the shell.html file
 })
-class CatCalZone {
+class Application {
+	// nothing special required here
 }
 
-bootstrap(CatCalZone, [AuthenticationService, AppointmentsService]);
+/*
+ * boostrap the application with all available services. these services will be available
+ * as singleton, container elements may use constructor based injection to get hold of the
+ * instance
+ * 
+ * example:
+ *
+ * constructor(authenticationService: AuthenticationService) {
+ * 		this.authenticationService = authenticationService; 
+ * }
+ *
+ * 
+ */
+bootstrap(Application, [AuthenticationService, AppointmentsService]);

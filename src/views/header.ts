@@ -3,16 +3,16 @@ import {Component, View, NgIf} from 'angular2/angular2';
 import {AuthenticationService} from '../services/authenticationservice'
 
 @Component({
-  selector: 'ccz-header'
+  selector: 'a2os-header'
 })
 @View({
   templateUrl: 'src/views/header.html',
   directives: [NgIf]
 })
 export class Header {
-	service: AuthenticationService;
+	authenticationService: AuthenticationService;
 
-	constructor(service: AuthenticationService){
-		this.service = service;
+	constructor(authenticationService: AuthenticationService){
+		this.authenticationService = authenticationService;
 	}
 }
